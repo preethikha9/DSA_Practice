@@ -1,0 +1,31 @@
+#How to use multiple ssh key for different account in same machine 
+# cd ~/.ssh
+# output: id_rsa		id_rsa.pub	known_hosts
+# create a config file
+# vi config 
+# create new key with different name else it will overwrite the existing key 
+# ssh-keygen -f preethikha9_github_id_rsa 
+#ls 
+# output: config			id_rsa.pub			preethikha9_github_id_rsa
+#id_rsa				known_hosts			preethikha9_github_id_rsa.pub
+
+# content in config file 
+
+#Gitlab
+Host gitlab.com
+ Hostname gitlab.com
+ IdentityFile ~/.ssh/id_rsa
+
+#Github
+Host github.com
+ Hostname github.com
+ IdentityFile ~/.ssh/preethikha9_github_id_rsa
+
+# for multiple github account 
+# set host as github-<some_name>.com
+
+# when we do git pull or git push use the host name you specified  
+#git@github-<some_name>.com:preethikha9/DSA_Practice.git
+
+#video link 
+# https://www.youtube.com/watch?v=N2hMGEeYR7c
